@@ -4,11 +4,11 @@
 <div align="center">
    <h1> PaymentX </h1><br>
 
-<h3> A demo Typescript project that's based on Serverless architecture</h3>
+<h3> A demo Typescript project that's based on Serverless architecture using CDK</h3>
 
-![Build Status](https://github.com/matthew-0x/paymentx/actions/workflows/ci.yml/badge.svg?branch=main)
+![Build Status](https://github.com/uniqcodes/paymentx/actions/workflows/ci.yml/badge.svg?branch=main)
 [![Known Vulnerabilities](https://snyk.io/test/npm/axios/badge.svg)](https://snyk.io/test/npm/axios)
-[![Coverage Status](https://coveralls.io/repos/github/matthew-0x/paymentx/badge.svg?branch=main)](https://coveralls.io/github/matthew-0x/paymentx?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/uniqcodes/paymentx/badge.svg?branch=main)](https://coveralls.io/github/uniqcodes/paymentx?branch=main)
 
 </div>
 <div>
@@ -19,7 +19,7 @@
   <li>Using Github Actions and Github Secrets to implement CI/CD piepline</li>
   <li>Using Jest to write unit tests</li>
   <li>Using Typescript</li>
-  <li>Using AWS services such as Lambda functions, DynamoDB and ...</li>
+  <li>Using AWS services</li>
   <li>Validating JSON schemas</li>
 
 </ul>

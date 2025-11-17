@@ -5,6 +5,8 @@
   "description": "Backend POC of a payment processor",
   "scripts": {
     "dev": "tsx watch --clear-screen=false src/index.ts",
+    "build": "tsc",
+    "clean": "rm -rf dist cdk.out",
     "type-check": "tsc --noEmit",
     "lint": "eslint src --ext .ts --max-warnings 0",
     "lint:fix": "eslint src --ext .ts --fix",
@@ -14,12 +16,13 @@
     "test:coverage": "NODE_OPTIONS=--experimental-vm-modules jest --coverage",
     "cdk:synth": "cdk synth",
     "cdk:diff": "cdk diff",
+    "cdk:watch": "cdk watch",
     "cdk:deploy": "cdk deploy --require-approval never",
     "cdk:deploy:prod": "cdk deploy --require-approval never --context environment=production",
     "cdk:destroy": "cdk destroy",
     "cdk:bootstrap": "cdk bootstrap",
-    "deploy": "npm run type-check && npm run test && npm run cdk:deploy",
-    "ci": "npm run type-check && npm run lint && npm run test && npm run build"
+    "deploy": "npm run build:lambdas && npm run type-check && npm run test && npm run cdk:deploy",
+    "ci-check": "npm run type-check && npm run lint && npm run test && npm run build"
   },
   "dependencies": {
     "@aws-sdk/client-dynamodb": "^3.932.0",
@@ -31,7 +34,7 @@
     "@types/aws-lambda": "^8.10.158",
     "@types/node": "^24.10.1",
     "@typescript-eslint/eslint-plugin": "^8.46.4",
-    "@typescript-eslint/parser": "^8.64.4",
+    "@typescript-eslint/parser": "^8.46.4",
     "eslint": "^9.39.1",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-prettier": "^5.5.4",
@@ -51,7 +54,6 @@
   "keywords": [
     "aws",
     "lambda",
-    "terraform",
     "serverless",
     "typescript",
     "iac"
