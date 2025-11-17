@@ -17,7 +17,6 @@
     "cdk:diff": "cdk diff",
     "cdk:watch": "cdk watch",
     "cdk:deploy": "cdk deploy --require-approval never",
-    "cdk:deploy:prod": "cdk deploy --require-approval never --context environment=production",
     "cdk:destroy": "cdk destroy",
     "cdk:bootstrap": "cdk bootstrap",
     "deploy": "npm run type-check && npm run test && npm run cdk:deploy"
