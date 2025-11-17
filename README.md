@@ -12,7 +12,7 @@
 
 </div>
 <div>
-<br><p> Project's tech stack: AWS Serverless (Lambda), DynamoDB, Nodejs, Typescript.</p>
+<br><p> Tech stack: AWS Serverless (Lambda), ApiGateway, DynamoDB, Nodejs, Typescript.</p>
 
 <p>The purpose of this project is to showcase the following skills:</p>
 <ul style="display: flex; flex-direction: column; align-items: left; list-style-position: inside;">
