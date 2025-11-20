@@ -18,10 +18,7 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install dependencies
-        run: npm ci --loglevel warn
-
-      - name: Cache node modules
+      - name: Cache downloaded dependencies
         uses: actions/cache@v4
         with:
           path: ~/.npm
@@ -29,10 +26,13 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
-      - name: Run tests
-        run: npm test
+      - name: Install dependencies
+        run: npm ci --loglevel warn
 
-      - name: Upload test coverage
+      - name: Run tests
+        run: npm test:coverage
+
+      - name: Report test coverage
         if: success()
         uses: coverallsapp/github-action@v2
         with:
@@ -51,10 +51,7 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install dependencies
-        run: npm ci --loglevel warn
-
-      - name: Cache node modules
+      - name: Cache downloaded dependencies
         uses: actions/cache@v4
         with:
           path: ~/.npm
@@ -62,17 +59,19 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: Install dependencies
+        run: npm ci --loglevel warn
+
       - name: Build project
-        run: npm run cdk:deploy
+        run: npm run cdk:synth
 
       - name: Upload build artifacts
         uses: actions/upload-artifact@v4
         with:
           name: build-artifact
           path: |
+            cdk.out/
             dist/
-            package.json
-            package-lock.json
 
   deploy:
     if: false
@@ -94,10 +93,10 @@ jobs:
         with:
           node-version: "20"
 
-      - name: Install production dependencies
+      - name: Installing production dependencies
         run: npm ci --loglevel warn
 
-      - name: Configure AWS credentials
+      - name: Configuring AWS credentials
         uses: aws-actions/configure-aws-credentials@v3
         with:
           aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
