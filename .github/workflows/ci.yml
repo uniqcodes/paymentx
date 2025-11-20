@@ -30,7 +30,7 @@ jobs:
         run: npm ci --loglevel warn
 
       - name: Run tests
-        run: npm test:coverage
+        run: npm run test:coverage
 
       - name: Report test coverage
         if: success()
